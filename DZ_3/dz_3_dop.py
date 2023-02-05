@@ -4,6 +4,7 @@ polynomial={}
 str_polinomials ={}
 
 degree = int(input("введите максимальную степень многочлена: "))
+degree2 = int(input("введите максимальную степень второго многочлена: "))
 string = []
 def new_polinomial(degree):
 
@@ -33,21 +34,34 @@ def str_sum_pol(pol):
     return strin
 
 def sum_polynomial(polynomial):
-    one = polynomial[1]
-    two = polynomial[2]
+    if (len(polynomial[1])) > (len(polynomial[2])):
+        big = 1
+        min = 2
+    else:
+        big = 2
+        min = 1
+    one = polynomial[big]
+    two = polynomial[min]
     
     sums = []
-    for count in range(len(polynomial[1])):
-        sum = one[count] + two[count]
-        sums.append(sum)
-        count+=1 
+    for count in range(len(one)):
+        if count >= len(two):
+            num2 = 0
+            num1 = one[count]
+        else:
+            num1 = one[count]
+            num2 = two[count]
+        
+        sum = num1 + num2
+        sums.insert(0,sum)
+        # count+=1 
     return sums
 
 def str_polinomial(polinom):
     summ = polinom[3]
+    str_pol = []
     for i in range(len(summ)):
-        print(i)
-        str_pol = []
+
         if summ[i] == 0:
             continue
         else:
@@ -63,7 +77,7 @@ polynomial[1]= new_polinomial(degree)
 str_polinomials[1] = str_sum_pol(string)
 string = []
 
-polynomial[2]= new_polinomial(degree)
+polynomial[2]= new_polinomial(degree2)
 str_polinomials[2] = str_sum_pol(string)
 
 polynomial[3] = sum_polynomial(polynomial) 
