@@ -54,11 +54,10 @@ def sum_polynomial(polynomial):
         
         sum = num1 + num2
         sums.insert(0,sum)
-        # count+=1 
     return sums
 
-def str_polinomial(polinom):
-    summ = polinom[3]
+def str_polinomial(polinom, num_list):
+    summ = polinom[num_list]
     str_pol = []
     for i in range(len(summ)):
 
@@ -81,7 +80,7 @@ polynomial[2]= new_polinomial(degree2)
 str_polinomials[2] = str_sum_pol(string)
 
 polynomial[3] = sum_polynomial(polynomial) 
-str_polinomials[3] = str_sum_pol(str_polinomial(polynomial))
+str_polinomials[3] = str_sum_pol(str_polinomial(polynomial,3))
 print(polynomial)
 print(f"({str_polinomials[1]}) + ({str_polinomials[2]}) = ({str_polinomials[3]})")
 
